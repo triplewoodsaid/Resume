@@ -332,11 +332,3 @@ section.portfolio .works > .small {
   position: absolute;
 }
 /* 对图片进行绝对定位  */
-.icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
-/* icon给footer里的连接设置一个显示的方式 */
