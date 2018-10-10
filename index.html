@@ -3,6 +3,11 @@
 
 <head>
   <title>杨森的个人简历</title>
+  <script>
+      setTimeout(function(){
+      siteWelcome.classList.remove('active')
+    },1500)
+  </script>
   <link rel="stylesheet" href="./main.css">
   <link rel="stylesheet" href="./loading.css">
   <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
@@ -28,11 +33,25 @@
             <span class="rs">RS</span>
             <span class="card">card</span>
           </a>
-          <nav style="float: right;">
-            <ul class="clearfix">
-              <li><a href="#">关于</a></li>
-              <li><a href="#">技能</a></li>
-              <li><a href="#">作品</a></li>
+          <nav class="menu" style="float: right;">
+            <ul  class="clearfix">
+              <li><a href="#siteAbout">关于</a></li>
+              <li>
+                <a href="#siteSkills">技能</a>
+                <ul class="submenu">
+                  <li>技能1</li>
+                  <li>技能2</li>
+                  <li>技能3</li>
+                </ul>
+              </li>
+              <li>
+                <a href="#siteWorks">作品</a>
+                <ul class="submenu">
+                    <li>作品1</li>
+                    <li>作品2</li>
+                    <li>作品3</li>
+                  </ul>
+              </li>
               <li><a href="#">博客</a></li>
               <li><a href="#">日历</a></li>
               <li><a href="#">联系方式</a></li>
@@ -48,7 +67,7 @@
       </div>
         <!-- 设置背景图片 和透明度 -->
     <main>
-      <div class="userCard">
+      <div id="siteAbout" class="userCard">
         <div class="pictureAndText clearfix">
             <div class="picture">
                 <img src="./img/yangsen.png" width=240px height=360px alt="头像">
@@ -103,7 +122,7 @@
         <br>技能：HTML、CSS、JS,熟悉oracle、mysql等主流数据库。
       </p>
     </main>
-  <section class="skills">
+  <section id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
       <li>
@@ -156,7 +175,7 @@
       </li>
     </ol>
   </section>
-  <section class="portfolio">
+  <section id="siteWorks" class="portfolio">
     <h2>作品集</h2>
     <nav>
       <ol class="clearfix">
@@ -195,9 +214,6 @@
     
   </section>
   <script>
-    setTimeout(function(){
-      siteWelcome.classList.remove('active')
-    },1500)
   window.onscroll = function(x){
     if(window.scrollY>0){
       topNavBar.classList.add('sticky')
@@ -205,6 +221,30 @@
       topNavBar.classList.remove('sticky')
     }
   }
+
+let liTags = document.querySelectorAll('nav.menu > ul > li')
+for(let i=0; i<liTags.length; i++){
+  liTags[i].onmouseenter = function(x){
+    x.currentTarget.classList.add('active')
+  }
+  liTags[i].onmouseleave = function(x){
+    x.currentTarget.classList.remove('active')
+  }
+}
+let aTags=document.querySelectorAll('nav.menu>ul>li>a')
+for(let i=0;i<aTags.length;i++){
+  aTags[i].onclick = function(x){
+    x.preventDefault()
+    let href=x.currentTarget.getAttribute('href')
+    let element = document.querySelector(href)
+    let top = element.offsetTop
+    window.scrollTo(0,top-100)
+    console.log(href)
+    console.log(element)
+    console.log(top)
+
+  }
+}
   </script>
 </body>
 
