@@ -3,7 +3,8 @@
 
 <head>
   <title>杨森的个人简历</title>
-  <link rel="stylesheet" href="./a.css">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./loading.css">
   <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
   <style type="text/css">
     .icon {
@@ -18,7 +19,10 @@
 </head>
 
 <body>
-    <div class="topNavBar">
+  <div id = "siteWelcome" class="siteWelcome active">
+  <div class="loading"></div>
+</div>
+    <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
           <a href="#" class="logo" alt="logo"style="float: left;">
             <span class="rs">RS</span>
@@ -47,7 +51,7 @@
       <div class="userCard">
         <div class="pictureAndText clearfix">
             <div class="picture">
-                <img src="./img/yansgen.jpg" width=240px height=360px alt="头像">
+                <img src="./img/yangsen.png" width=240px height=360px alt="头像">
             </div>
             <div class="text">
               <span class="welcome">
@@ -190,6 +194,18 @@
     </div>
     
   </section>
+  <script>
+    setTimeout(function(){
+      siteWelcome.classList.remove('active')
+    },1500)
+  window.onscroll = function(x){
+    if(window.scrollY>0){
+      topNavBar.classList.add('sticky')
+    }else{
+      topNavBar.classList.remove('sticky')
+    }
+  }
+  </script>
 </body>
 
 </html>
